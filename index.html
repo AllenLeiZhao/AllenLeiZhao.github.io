@@ -30,12 +30,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
         }
         
         nav .container {
@@ -341,6 +342,31 @@
         .section-title {
             text-align: center;
             margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 1px;
+            animation: breathe 3s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { 
+                width: 60px;
+                opacity: 0.8;
+            }
+            50% { 
+                width: 80px;
+                opacity: 1;
+            }
         }
         
         .section-title h2 {
@@ -417,11 +443,13 @@
             font-size: 0.95rem;
             font-weight: 500;
             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .skill-tag:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
         
         /* Projects Section */
@@ -477,6 +505,7 @@
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: rgba(52, 152, 219, 0.3);
         }
         
         .project-placeholder {
@@ -754,6 +783,7 @@
         .contact-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-color: rgba(52, 152, 219, 0.2);
         }
         
         .contact-icon {
