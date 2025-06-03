@@ -714,7 +714,6 @@
         
         .project-image {
             height: 180px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -722,6 +721,50 @@
             font-size: 3.5rem;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        /* Video project - Film/Cinema theme */
+        .project-card.video-project .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/274937/pexels-photo-274937.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+        
+        /* Bicycle accident analysis - Transportation theme */
+        .project-card[data-category="data-analysis"] .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/38296/cycling-bicycle-riding-sport-38296.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+        
+        /* NLP project - Fairy tale book reading theme */
+        .project-card[data-category="nlp"] .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/6157222/pexels-photo-6157222.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+        
+        /* Coming soon placeholder - Simple clean design */
+        .project-card.project-placeholder .project-image {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d, #5d6d7e);
+        }
+        
+        /* Enhanced overlay for better text readability */
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .project-image i,
+        .video-play-overlay {
+            position: relative;
+            z-index: 2;
         }
         
         .project-image::before {
@@ -1339,11 +1382,10 @@
                 <!-- Video/Storytelling project - Featured First -->
                 <div class="project-card video-project" data-category="storytelling">
                     <div class="project-image">
-                        <i class="fas fa-video"></i>
+                        <i class="fas fa-film"></i>
                         <div class="video-play-overlay" onclick="openVideoModal('main-video')">
                             <i class="fas fa-play"></i>
                         </div>
-                        <div class="chart-lines"></div>
                     </div>
                     <div class="project-content">
                         <h3>⭐ Data Storytelling Through Film</h3>
@@ -1365,8 +1407,7 @@
                 
                 <div class="project-card" data-category="data-analysis">
                     <div class="project-image">
-                        <i class="fas fa-bicycle"></i>
-                        <div class="chart-lines"></div>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
                         <h3>Bicycle Accident Analysis in Great Britain (1979-2018)</h3>
@@ -1388,8 +1429,7 @@
 
                 <div class="project-card" data-category="nlp">
                     <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                        <div class="chart-lines"></div>
+                        <i class="fas fa-book-open" style="font-size: 2.5rem;"></i>
                     </div>
                     <div class="project-content">
                         <h3>NLP Sentiment Analysis - Snow White</h3>
@@ -1411,6 +1451,9 @@
                 
                 <!-- Single Coming Soon placeholder -->
                 <div class="project-card project-placeholder" data-category="all">
+                    <div class="project-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
                     <div class="project-content">
                         <p>More Projects<br>Coming Soon...</p>
                     </div>
