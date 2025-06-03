@@ -99,6 +99,34 @@
                 radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 50%);
         }
         
+        /* Data visualization decorative elements */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                /* Chart bars - top left */
+                linear-gradient(90deg, rgba(255,255,255,0.2) 2px, transparent 2px),
+                linear-gradient(0deg, rgba(255,255,255,0.2) 2px, transparent 2px),
+                /* Grid pattern */
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 
+                60px 30px,
+                30px 60px,
+                30px 30px,
+                30px 30px;
+            background-position: 
+                10% 20%,
+                10% 20%,
+                0 0,
+                0 0;
+            opacity: 0.8;
+        }
+        
         .featured-video-banner {
             position: absolute;
             top: 20px;
@@ -133,6 +161,73 @@
         .hero-content {
             position: relative;
             z-index: 2;
+        }
+        
+        /* Floating data icons */
+        .data-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .data-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 3rem;
+            animation: float 6s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .data-icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .data-icon:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 1s;
+            font-size: 3.5rem;
+        }
+        
+        .data-icon:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+            font-size: 2.8rem;
+        }
+        
+        .data-icon:nth-child(4) {
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 3s;
+            font-size: 3rem;
+        }
+        
+        .data-icon:nth-child(5) {
+            top: 40%;
+            left: 5%;
+            animation-delay: 4s;
+            font-size: 2.5rem;
+        }
+        
+        .data-icon:nth-child(6) {
+            top: 60%;
+            right: 8%;
+            animation-delay: 5s;
+            font-size: 3.2rem;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(2deg); }
+            50% { transform: translateY(-20px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-2deg); }
         }
         
         .hero-content h1 {
@@ -818,6 +913,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Floating data visualization icons -->
+        <div class="data-icons">
+            <div class="data-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="data-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="data-icon"><i class="fas fa-database"></i></div>
+            <div class="data-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="data-icon"><i class="fas fa-code"></i></div>
+            <div class="data-icon"><i class="fas fa-brain"></i></div>
+        </div>
+        
         <div class="hero-content">
             <h1>Lei Zhao</h1>
             <p class="subtitle">Data Analytics Graduate Student</p>
