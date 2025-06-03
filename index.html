@@ -687,6 +687,7 @@
             border: 1px solid #eee;
             opacity: 1;
             transform: scale(1);
+            cursor: pointer;
         }
         
         .project-card.hidden {
@@ -699,6 +700,13 @@
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             border-color: rgba(52, 152, 219, 0.3);
+        }
+        
+        /* Keep project links functional */
+        .project-links a {
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
         }
         
         .project-placeholder {
@@ -1408,10 +1416,10 @@
             
             <div class="projects-grid">
                 <!-- Video/Storytelling project - Featured First -->
-                <div class="project-card video-project" data-category="storytelling">
+                <div class="project-card video-project" data-category="storytelling" onclick="openVideoModal('main-video')">
                     <div class="project-image">
                         <i class="fas fa-film"></i>
-                        <div class="video-play-overlay" onclick="openVideoModal('main-video')">
+                        <div class="video-play-overlay">
                             <i class="fas fa-play"></i>
                         </div>
                     </div>
@@ -1425,7 +1433,7 @@
                             <span class="tech-tag">Communication</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" onclick="openVideoModal('main-video')">
+                            <a href="#" onclick="event.stopPropagation(); openVideoModal('main-video')">
                                 <i class="fas fa-play"></i>
                                 Watch Video
                             </a>
@@ -1433,7 +1441,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="data-analysis">
+                <div class="project-card" data-category="data-analysis" onclick="window.open('https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018', '_blank')">
                     <div class="project-image">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -1447,7 +1455,7 @@
                             <span class="tech-tag">Statistical Analysis</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018" target="_blank">
+                            <a href="https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018" target="_blank" onclick="event.stopPropagation()">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
@@ -1455,7 +1463,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="nlp">
+                <div class="project-card" data-category="nlp" onclick="window.open('https://github.com/AllenLeiZhao/NLP_Sentiment_Analysis_SnowWhite', '_blank')">
                     <div class="project-image">
                         <i class="fas fa-book-open" style="font-size: 2.5rem;"></i>
                     </div>
@@ -1469,7 +1477,7 @@
                             <span class="tech-tag">Jupyter Notebook</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/AllenLeiZhao/NLP_Sentiment_Analysis_SnowWhite" target="_blank">
+                            <a href="https://github.com/AllenLeiZhao/NLP_Sentiment_Analysis_SnowWhite" target="_blank" onclick="event.stopPropagation()">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
