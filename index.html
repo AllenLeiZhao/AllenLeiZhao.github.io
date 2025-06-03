@@ -176,58 +176,76 @@
         
         .data-icon {
             position: absolute;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 3rem;
+            font-size: 4rem;
             animation: float 6s ease-in-out infinite;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
         }
         
         .data-icon:nth-child(1) {
             top: 15%;
             left: 10%;
             animation-delay: 0s;
+            color: #64b5f6;
         }
         
         .data-icon:nth-child(2) {
             top: 25%;
             right: 15%;
             animation-delay: 1s;
-            font-size: 3.5rem;
+            font-size: 4.5rem;
+            color: #81c784;
         }
         
         .data-icon:nth-child(3) {
             bottom: 20%;
             left: 15%;
             animation-delay: 2s;
-            font-size: 2.8rem;
+            font-size: 3.8rem;
+            color: #ffb74d;
         }
         
         .data-icon:nth-child(4) {
             bottom: 30%;
             right: 10%;
             animation-delay: 3s;
-            font-size: 3rem;
+            font-size: 4rem;
+            color: #f06292;
         }
         
         .data-icon:nth-child(5) {
             top: 40%;
             left: 5%;
             animation-delay: 4s;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            color: #ba68c8;
         }
         
         .data-icon:nth-child(6) {
             top: 60%;
             right: 8%;
             animation-delay: 5s;
-            font-size: 3.2rem;
+            font-size: 4.2rem;
+            color: #4fc3f7;
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(2deg); }
-            50% { transform: translateY(-20px) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(-2deg); }
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.8;
+            }
+            25% { 
+                transform: translateY(-15px) rotate(3deg); 
+                opacity: 0.9;
+            }
+            50% { 
+                transform: translateY(-30px) rotate(0deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-15px) rotate(-3deg); 
+                opacity: 0.9;
+            }
         }
         
         .hero-content h1 {
@@ -915,12 +933,12 @@
     <section id="home" class="hero">
         <!-- Floating data visualization icons -->
         <div class="data-icons">
-            <div class="data-icon"><i class="fas fa-chart-bar"></i></div>
             <div class="data-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="data-icon"><i class="fas fa-database"></i></div>
+            <div class="data-icon"><i class="fas fa-laptop-code"></i></div>
             <div class="data-icon"><i class="fas fa-chart-pie"></i></div>
-            <div class="data-icon"><i class="fas fa-code"></i></div>
-            <div class="data-icon"><i class="fas fa-brain"></i></div>
+            <div class="data-icon"><i class="fas fa-atom"></i></div>
+            <div class="data-icon"><i class="fas fa-project-diagram"></i></div>
+            <div class="data-icon"><i class="fas fa-rocket"></i></div>
         </div>
         
         <div class="hero-content">
