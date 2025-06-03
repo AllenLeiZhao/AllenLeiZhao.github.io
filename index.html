@@ -48,6 +48,12 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #3498db;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #2980b9;
         }
         
         .nav-links {
@@ -70,13 +76,14 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
@@ -86,7 +93,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
         }
         
         .hero-content {
@@ -268,11 +278,36 @@
         }
         
         /* Projects Section */
+        .projects-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #3498db;
+            background: transparent;
+            color: #3498db;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .category-btn.active,
+        .category-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+        
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
         
         .project-card {
@@ -282,11 +317,30 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
             border: 1px solid #eee;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .project-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
         }
         
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .project-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            min-height: 400px;
         }
         
         .project-image {
@@ -298,6 +352,7 @@
             color: white;
             font-size: 4rem;
             position: relative;
+            overflow: hidden;
         }
         
         .project-image::before {
@@ -313,6 +368,143 @@
         .project-image i {
             position: relative;
             z-index: 2;
+        }
+        
+        /* Video Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .video-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .video-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .video-close:hover {
+            color: #333;
+        }
+        
+        .video-embed {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .video-info h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .video-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Video project card special styling */
+        .project-card.video-project {
+            position: relative;
+        }
+        
+        .video-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #3498db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .video-play-overlay:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .data-decoration {
+            position: absolute;
+            opacity: 0.1;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .chart-lines {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 40px;
+        }
+        
+        .chart-lines::before,
+        .chart-lines::after {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+        
+        .chart-lines::before {
+            width: 2px;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        
+        .chart-lines::after {
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .data-points {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .data-points span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+            margin-right: 4px;
         }
         
         .project-content {
@@ -377,7 +569,8 @@
         }
         
         .contact-info {
-            max-width: 600px;
+            max-width: 900px;
+            width: 100%;
         }
         
         .contact-info h3 {
@@ -388,46 +581,61 @@
             font-weight: 600;
         }
         
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
         .contact-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem 1.5rem;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
             border: 1px solid #eee;
         }
         
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         }
         
         .contact-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #3498db, #2980b9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .contact-details h4 {
             color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
         
         .contact-details p {
             color: #666;
             font-size: 1rem;
+            margin: 0;
         }
         
         .contact-details a {
@@ -533,6 +741,11 @@
             .section-title h2 {
                 font-size: 2.2rem;
             }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -555,7 +768,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Lei Zhao</div>
+            <div class="logo" onclick="scrollToSection('home')">Lei Zhao</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -634,10 +847,25 @@
                 <h2>My Projects</h2>
                 <p>Featured projects showcasing my analytical and technical skills</p>
             </div>
+            
+            <!-- Project Categories -->
+            <div class="projects-categories">
+                <button class="category-btn active" onclick="filterProjects('all')">All Projects</button>
+                <button class="category-btn" onclick="filterProjects('machine-learning')">Machine Learning</button>
+                <button class="category-btn" onclick="filterProjects('data-analysis')">Data Analysis</button>
+                <button class="category-btn" onclick="filterProjects('nlp')">NLP</button>
+                <button class="category-btn" onclick="filterProjects('visualization')">Data Visualization</button>
+                <button class="category-btn" onclick="filterProjects('storytelling')">Data Storytelling</button>
+            </div>
+            
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-category="data-analysis">
                     <div class="project-image">
                         <i class="fas fa-bicycle"></i>
+                        <div class="chart-lines"></div>
+                        <div class="data-points">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Bicycle Accident Analysis in Great Britain (1979-2018)</h3>
@@ -657,9 +885,13 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="nlp">
                     <div class="project-image">
                         <i class="fas fa-brain"></i>
+                        <div class="chart-lines"></div>
+                        <div class="data-points">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>NLP Sentiment Analysis - Snow White</h3>
@@ -678,9 +910,76 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Video/Storytelling project example -->
+                <div class="project-card video-project" data-category="storytelling">
+                    <div class="project-image">
+                        <i class="fas fa-video"></i>
+                        <div class="video-play-overlay" onclick="openVideoModal('sample-video')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="chart-lines"></div>
+                        <div class="data-points">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Storytelling Through Film</h3>
+                        <p>A cinematic approach to data analysis that demonstrates how complex analytical insights can be communicated through visual storytelling. This project showcases the power of narrative in making data accessible and compelling to diverse audiences.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Data Storytelling</span>
+                            <span class="tech-tag">Video Production</span>
+                            <span class="tech-tag">Analytics</span>
+                            <span class="tech-tag">Communication</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" onclick="openVideoModal('sample-video')">
+                                <i class="fas fa-play"></i>
+                                Watch Video
+                            </a>
+                            <a href="https://github.com/AllenLeiZhao/data-storytelling-film">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Placeholder cards for future projects -->
+                <div class="project-card project-placeholder" data-category="machine-learning">
+                    <div class="project-content">
+                        <p>Machine Learning Project<br>Coming Soon...</p>
+                    </div>
+                </div>
+                
+                <div class="project-card project-placeholder" data-category="visualization">
+                    <div class="project-content">
+                        <p>Data Visualization Project<br>Coming Soon...</p>
+                    </div>
+                </div>
+                
+                <div class="project-card project-placeholder" data-category="data-analysis">
+                    <div class="project-content">
+                        <p>Advanced Analytics Project<br>Coming Soon...</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-close" onclick="closeVideoModal()">&times;</span>
+            <div id="videoContainer">
+                <!-- Video will be inserted here -->
+            </div>
+            <div class="video-info">
+                <h4 id="videoTitle">Video Title</h4>
+                <p id="videoDescription">Video description will appear here.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -692,31 +991,33 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a href="mailto:allen.lei.zhao@gmail.com">allen.lei.zhao@gmail.com</a></p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p><a href="mailto:allen.lei.zhao@gmail.com">allen.lei.zhao@gmail.com</a></p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://www.linkedin.com/in/allen-lei-zhao/">linkedin.com/in/allen-lei-zhao</a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <p><a href="https://www.linkedin.com/in/allen-lei-zhao/">linkedin.com/in/allen-lei-zhao</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Portfolio</h4>
-                            <p><a href="https://allenleizhao.github.io">allenleizhao.github.io</a></p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Portfolio</h4>
+                                <p><a href="https://allenleizhao.github.io">allenleizhao.github.io</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -727,11 +1028,6 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/AllenLeiZhao"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/allen-lei-zhao/"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:allen.lei.zhao@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
             <p>&copy; 2025 Lei Zhao. All rights reserved.</p>
         </div>
     </footer>
@@ -763,7 +1059,82 @@
             }
         });
 
-        // Project card animations
+        // Logo click to home
+        function scrollToSection(sectionId) {
+            const target = document.querySelector(`#${sectionId}`);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Video modal functions
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const container = document.getElementById('videoContainer');
+            const title = document.getElementById('videoTitle');
+            const description = document.getElementById('videoDescription');
+            
+            // Sample video data - replace with your actual video
+            const videoData = {
+                'sample-video': {
+                    embed: '<iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>',
+                    title: 'Data Storytelling Through Film',
+                    description: 'This film demonstrates how complex data analysis can be transformed into compelling visual narratives. Through cinematic techniques and data visualization, we explore the intersection of analytics and storytelling.'
+                }
+            };
+            
+            if (videoData[videoId]) {
+                container.innerHTML = videoData[videoId].embed;
+                title.textContent = videoData[videoId].title;
+                description.textContent = videoData[videoId].description;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const container = document.getElementById('videoContainer');
+            modal.style.display = 'none';
+            container.innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeVideoModal();
+            }
+        }
+        
+        // Make functions globally available
+        window.scrollToSection = scrollToSection;
+        window.openVideoModal = openVideoModal;
+        window.closeVideoModal = closeVideoModal;
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Make filterProjects globally available
+        window.filterProjects = filterProjects;
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
