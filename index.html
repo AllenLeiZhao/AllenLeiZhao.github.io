@@ -630,6 +630,9 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
             border: 1px solid #eee;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
         
         .contact-item:hover {
@@ -674,6 +677,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            pointer-events: none;
         }
         
         .contact-details a:hover {
@@ -811,21 +815,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Background grid -->
-        <div class="data-viz-bg"></div>
-        
-        <!-- Floating geometric shapes -->
-        <div class="geometric-shape shape-1"></div>
-        <div class="geometric-shape shape-2"></div>
-        <div class="geometric-shape shape-3"></div>
-        <div class="geometric-shape shape-4"></div>
-        
-        <!-- Featured Video Banner -->
-        <div class="featured-video-banner" onclick="openVideoModal('featured-video')">
-            <i class="fas fa-play-circle"></i>
-            <span class="featured-video-text">Watch My Data Story</span>
-        </div>
-        
         <div class="hero-content">
             <h1>Lei Zhao</h1>
             <p class="subtitle">Data Analytics Graduate Student</p>
@@ -849,13 +838,6 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <div class="section-decoration">
-                <div class="floating-icons icon-1"><i class="fas fa-chart-line"></i></div>
-                <div class="floating-icons icon-2"><i class="fas fa-database"></i></div>
-                <div class="floating-icons icon-3"><i class="fas fa-brain"></i></div>
-                <div class="floating-icons icon-4"><i class="fas fa-code"></i></div>
-                <div class="wave-decoration"></div>
-            </div>
             <div class="section-title">
                 <h2>About Me</h2>
                 <p>Learn about my background, skills, and career aspirations</p>
@@ -904,10 +886,8 @@
             <!-- Project Categories -->
             <div class="projects-categories">
                 <button class="category-btn active" onclick="filterProjects('all')">All Projects</button>
-                <button class="category-btn" onclick="filterProjects('machine-learning')">Machine Learning</button>
                 <button class="category-btn" onclick="filterProjects('data-analysis')">Data Analysis</button>
                 <button class="category-btn" onclick="filterProjects('nlp')">NLP</button>
-                <button class="category-btn" onclick="filterProjects('visualization')">Data Visualization</button>
                 <button class="category-btn" onclick="filterProjects('storytelling')">Data Storytelling</button>
             </div>
             
@@ -994,22 +974,10 @@
                     </div>
                 </div>
                 
-                <!-- Placeholder cards for future projects -->
-                <div class="project-card project-placeholder" data-category="machine-learning">
+                <!-- Single Coming Soon placeholder -->
+                <div class="project-card project-placeholder" data-category="all">
                     <div class="project-content">
-                        <p>Machine Learning Project<br>Coming Soon...</p>
-                    </div>
-                </div>
-                
-                <div class="project-card project-placeholder" data-category="visualization">
-                    <div class="project-content">
-                        <p>Data Visualization Project<br>Coming Soon...</p>
-                    </div>
-                </div>
-                
-                <div class="project-card project-placeholder" data-category="data-analysis">
-                    <div class="project-content">
-                        <p>Advanced Analytics Project<br>Coming Soon...</p>
+                        <p>More Projects<br>Coming Soon...</p>
                     </div>
                 </div>
             </div>
@@ -1041,33 +1009,33 @@
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <div class="contact-grid">
-                        <div class="contact-item">
+                        <a href="mailto:allen.lei.zhao@gmail.com" class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Email</h4>
-                                <p><a href="mailto:allen.lei.zhao@gmail.com">allen.lei.zhao@gmail.com</a></p>
+                                <p>allen.lei.zhao@gmail.com</p>
                             </div>
-                        </div>
-                        <div class="contact-item">
+                        </a>
+                        <a href="https://www.linkedin.com/in/allen-lei-zhao/" target="_blank" class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>LinkedIn</h4>
-                                <p><a href="https://www.linkedin.com/in/allen-lei-zhao/">linkedin.com/in/allen-lei-zhao</a></p>
+                                <p>linkedin.com/in/allen-lei-zhao</p>
                             </div>
-                        </div>
-                        <div class="contact-item">
+                        </a>
+                        <a href="https://allenleizhao.github.io" target="_blank" class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-globe"></i>
                             </div>
                             <div class="contact-details">
                                 <h4>Portfolio</h4>
-                                <p><a href="https://allenleizhao.github.io">allenleizhao.github.io</a></p>
+                                <p>allenleizhao.github.io</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
