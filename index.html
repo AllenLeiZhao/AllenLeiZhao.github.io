@@ -257,6 +257,21 @@
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
             color: #2c3e50;
+            position: relative;
+        }
+        
+        /* Blue breathing line for hero title */
+        .hero-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 1px;
+            animation: breathe 3s ease-in-out infinite;
         }
         
         .hero-content .subtitle {
@@ -267,6 +282,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
             color: #34495e;
+            margin-top: 2rem;
         }
         
         .hero-content .description {
@@ -345,7 +361,16 @@
             position: relative;
         }
         
-        .section-title::after {
+        .section-title h2 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        /* Blue breathing line for section titles */
+        .section-title h2::after {
             content: '';
             position: absolute;
             bottom: -15px;
@@ -369,18 +394,12 @@
             }
         }
         
-        .section-title h2 {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
         .section-title p {
             font-size: 1.2rem;
             color: #7f8c8d;
             max-width: 600px;
             margin: 0 auto;
+            margin-top: 2rem;
         }
         
         /* About Section */
