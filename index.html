@@ -33,7 +33,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(52, 152, 219, 0.1);
@@ -46,7 +46,7 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #3498db;
             cursor: pointer;
@@ -974,10 +974,36 @@
             color: #2980b9;
         }
         
-        /* Contact Section */
+        /* Contact Section - Very light blue gradient */
         #contact {
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #f8fbff, #f0f8ff, #e8f4fd);
+            color: #2c3e50;
+        }
+        
+        /* Adjust contact section text colors for light blue background */
+        #contact .section-title h2,
+        #contact .section-title p {
+            color: #2c3e50;
+        }
+        
+        /* Adjust contact items for light blue background */
+        #contact .contact-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #2c3e50;
+        }
+        
+        #contact .contact-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #contact .contact-details h4,
+        #contact .contact-details p {
+            color: #2c3e50;
         }
         
         /* Contact section floating icons */
@@ -1059,14 +1085,6 @@
         .contact-info {
             max-width: 900px;
             width: 100%;
-        }
-        
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            text-align: center;
-            font-weight: 600;
         }
         
         .contact-grid {
@@ -1261,7 +1279,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo" onclick="scrollToSection('home')">Lei Zhao</div>
+            <div class="logo" onclick="scrollToSection('home')">Lei Zhao - Turning Data into Stories</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1452,7 +1470,7 @@
                 <!-- Single Coming Soon placeholder -->
                 <div class="project-card project-placeholder" data-category="all">
                     <div class="project-image">
-                        <i class="fas fa-rocket"></i>
+                        <!-- Simple clean design with no icons -->
                     </div>
                     <div class="project-content">
                         <p>More Projects<br>Coming Soon...</p>
@@ -1493,7 +1511,6 @@
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
                     <div class="contact-grid">
                         <a href="mailto:allen.lei.zhao@gmail.com" class="contact-item">
                             <div class="contact-icon">
