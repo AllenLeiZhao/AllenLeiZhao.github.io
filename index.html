@@ -664,6 +664,7 @@
             opacity: 0;
             transform: scale(0.8);
             pointer-events: none;
+            display: none;
         }
         
         .project-card:hover {
@@ -1300,6 +1301,7 @@
             <div class="projects-categories">
                 <button class="category-btn active" onclick="filterProjects('all')">All Projects</button>
                 <button class="category-btn" onclick="filterProjects('data-analysis')">Data Analysis</button>
+                <button class="category-btn" onclick="filterProjects('optimization')">Optimization</button>
                 <button class="category-btn" onclick="filterProjects('nlp')">NLP</button>
                 <button class="category-btn" onclick="filterProjects('storytelling')">Data Storytelling</button>
             </div>
@@ -1359,7 +1361,7 @@
                 </div>
 
                 <!-- Retail Inventory Optimization Project -->
-                <div class="project-card retail-optimization" data-category="data-analysis" onclick="window.open('https://github.com/AllenLeiZhao/Retail_Inventory_Optimization', '_blank')">
+                <div class="project-card retail-optimization" data-category="optimization" onclick="window.open('https://github.com/AllenLeiZhao/Retail_Inventory_Optimization', '_blank')">
                     <div class="project-image">
                         <i class="fas fa-boxes"></i>
                     </div>
@@ -1434,7 +1436,7 @@
                 </div>
                 
                 <!-- Single Coming Soon placeholder -->
-                <div class="project-card project-placeholder" data-category="all">
+                <div class="project-card project-placeholder" data-category="placeholder">
                     <div class="project-image">
                         <!-- Simple clean design with no icons -->
                     </div>
@@ -1602,26 +1604,55 @@
             }
         }
         
-        // Make functions globally available
+        // Make functions globally available first
         window.scrollToSection = scrollToSection;
         window.openVideoModal = openVideoModal;
         window.closeVideoModal = closeVideoModal;
         
+        // Project filtering function
         function filterProjects(category) {
+            console.log('filterProjects called with category:', category);
+            
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.category-btn');
             
-            // Update active button
+            console.log('Found', cards.length, 'cards');
+            
+            // Update active button - improved logic
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            
+            // Find and activate the clicked button based on onclick attribute
+            buttons.forEach(btn => {
+                const btnOnClick = btn.getAttribute('onclick');
+                if (btnOnClick && btnOnClick.includes(`'${category}'`)) {
+                    btn.classList.add('active');
+                }
+            });
             
             // Filter cards
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
+            cards.forEach((card, index) => {
+                const cardCategory = card.getAttribute('data-category');
+                console.log(`Card ${index}: category="${cardCategory}", classList:`, card.classList.toString());
+                
+                let shouldShow = false;
+                
+                if (category === 'all') {
+                    shouldShow = true;
+                } else if (cardCategory === category) {
+                    shouldShow = true;
+                } else if (card.classList.contains('project-placeholder')) {
+                    shouldShow = false; // Hide placeholder when filtering
+                }
+                
+                if (shouldShow) {
+                    card.style.display = 'block';
                     card.classList.remove('hidden');
                 } else {
+                    card.style.display = 'none';
                     card.classList.add('hidden');
                 }
+                
+                console.log(`Card ${index} should show: ${shouldShow}`);
             });
         }
         
