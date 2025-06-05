@@ -1,2 +1,2 @@
-[🔗 View My Portfolio](https://https://allenleizhao.github.io/)
+[🔗 View My Portfolio](https://allenleizhao.github.io/)
  
