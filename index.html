@@ -129,37 +129,6 @@
             opacity: 0.8;
         }
         
-        .featured-video-banner {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(59, 130, 246, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-        
-        .featured-video-banner:hover {
-            background: rgba(59, 130, 246, 1);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-        }
-        
-        .featured-video-banner i {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-        }
-        
-        .featured-video-text {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
         .hero-content {
             position: relative;
             z-index: 2;
@@ -747,6 +716,12 @@
                         url('https://images.pexels.com/photos/38296/cycling-bicycle-riding-sport-38296.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
         }
         
+        /* Sports betting analysis - Sports statistics theme */
+        .project-card.sports-betting .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+        
         /* NLP project - Fairy tale book reading theme */
         .project-card[data-category="nlp"] .project-image {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
@@ -772,21 +747,6 @@
         
         .project-image i,
         .video-play-overlay {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.2);
-        }
-        
-        .project-image i {
             position: relative;
             z-index: 2;
         }
@@ -875,57 +835,6 @@
         .video-play-overlay:hover {
             background: white;
             transform: translate(-50%, -50%) scale(1.1);
-        }
-        .data-decoration {
-            position: absolute;
-            opacity: 0.1;
-            color: white;
-            font-size: 1.2rem;
-        }
-        
-        .chart-lines {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 40px;
-        }
-        
-        .chart-lines::before,
-        .chart-lines::after {
-            content: '';
-            position: absolute;
-            background: rgba(255,255,255,0.3);
-            border-radius: 2px;
-        }
-        
-        .chart-lines::before {
-            width: 2px;
-            height: 100%;
-            left: 0;
-            top: 0;
-        }
-        
-        .chart-lines::after {
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-        }
-        
-        .data-points {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-        }
-        
-        .data-points span {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: rgba(255,255,255,0.4);
-            border-radius: 50%;
-            margin-right: 4px;
         }
         
         .project-content {
@@ -1177,32 +1086,6 @@
             padding: 3rem 0;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: #3498db;
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        
-        .social-links a:hover {
-            background: #2980b9;
-            transform: translateY(-3px);
-        }
-        
         footer p {
             font-size: 1rem;
             opacity: 0.8;
@@ -1444,18 +1327,45 @@
                     </div>
                 </div>
                 
+                <!-- Sports Betting Strategy Analysis Project -->
+                <div class="project-card sports-betting" data-category="data-analysis" onclick="window.open('https://github.com/AllenLeiZhao/Sports_Betting_Strategy_Analysis', '_blank')">
+                    <div class="project-image">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sports Betting Strategy Analysis - Statistical Modeling & Simulation</h3>
+                        <p>Advanced statistical modeling and simulation project using R to analyze optimal betting strategies across multi-game sports series. This project combines probability theory, expected value modeling, Monte Carlo simulation, and chi-square testing to determine when betting on the favorite is most profitable in best-of-3, best-of-5, and best-of-7 series formats.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Statistics</span>
+                            <span class="tech-tag">Monte Carlo Simulation</span>
+                            <span class="tech-tag">Probability Theory</span>
+                            <span class="tech-tag">Chi-Square Testing</span>
+                            <span class="tech-tag">Risk Modeling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AllenLeiZhao/Sports_Betting_Strategy_Analysis" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="project-card" data-category="data-analysis" onclick="window.open('https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018', '_blank')">
                     <div class="project-image">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Transportation Safety Analytics - UK Bicycle Accidents</h3>
-                        <p>Comprehensive analysis of 40 years of bicycle accident data in Great Britain (1979-2018), applying product analytics methodologies to identify safety patterns and trends. This project demonstrates my ability to work with large-scale datasets and extract actionable insights that could inform policy decisions and safety improvements.</p>
+                        <h3>UK Bicycle Accident Analysis Dashboard - Interactive Data Visualization</h3>
+                        <p>Interactive dashboard analyzing UK bicycle accidents (1979–2018) using Google Looker Studio. This comprehensive transportation safety analytics project demonstrates my ability to work with large-scale datasets and create compelling visualizations that could inform policy decisions and safety improvements across the UK transportation system.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Matplotlib</span>
-                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">Google Looker Studio</span>
+                            <span class="tech-tag">Dashboard</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Transportation Analytics</span>
+                            <span class="tech-tag">UK Data</span>
+                            <span class="tech-tag">Exploratory Analysis</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018" target="_blank" onclick="event.stopPropagation()">
@@ -1471,13 +1381,15 @@
                         <i class="fas fa-book-open" style="font-size: 2.5rem;"></i>
                     </div>
                     <div class="project-content">
-                        <h3>NLP Sentiment Analysis - Classic Literature Insights</h3>
-                        <p>Advanced Natural Language Processing project implementing sentiment analysis on Snow White narrative using machine learning techniques. This project showcases my ability to extract meaningful insights from unstructured text data - a critical skill for analyzing user feedback, reviews, and social media sentiment in product management contexts.</p>
+                        <h3>NLP Sentiment Analysis - Snow White Text Mining</h3>
+                        <p>An NLP project using vectorization, lemmatization, and Naive Bayes to perform sentiment analysis on Snow White text. This project showcases advanced natural language processing techniques including text mining and machine learning approaches - critical skills for analyzing user feedback, reviews, and social media sentiment in product management contexts.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Naive Bayes</span>
-                            <span class="tech-tag">Jupyter Notebook</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Natural Language Processing</span>
+                            <span class="tech-tag">Text Mining</span>
+                            <span class="tech-tag">Sentiment Analysis</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/AllenLeiZhao/NLP_Sentiment_Analysis_SnowWhite" target="_blank" onclick="event.stopPropagation()">
@@ -1661,6 +1573,7 @@
         window.scrollToSection = scrollToSection;
         window.openVideoModal = openVideoModal;
         window.closeVideoModal = closeVideoModal;
+        
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.category-btn');
@@ -1681,6 +1594,7 @@
         
         // Make filterProjects globally available
         window.filterProjects = filterProjects;
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
