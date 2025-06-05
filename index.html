@@ -643,9 +643,10 @@
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
             gap: 2.5rem;
             margin-top: 2rem;
+            justify-items: start;
         }
         
         .project-card {
@@ -658,6 +659,8 @@
             opacity: 1;
             transform: scale(1);
             cursor: pointer;
+            max-width: 600px;
+            width: 100%;
         }
         
         .project-card.hidden {
@@ -717,6 +720,12 @@
                         url('https://images.pexels.com/photos/38296/cycling-bicycle-riding-sport-38296.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
         }
         
+        /* Stock forecasting - Financial market theme */
+        .project-card.stock-forecasting .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+
         /* Sports betting analysis - Sports statistics theme */
         .project-card.sports-betting .project-image {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
@@ -1137,10 +1146,12 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .project-card {
                 margin: 0 1rem;
+                max-width: none;
             }
             
             .cta-buttons {
@@ -1353,6 +1364,33 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/AllenLeiZhao/Sports_Betting_Strategy_Analysis" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stock Price Forecasting and Investment Analysis Project -->
+                <div class="project-card stock-forecasting" data-category="data-analysis" onclick="window.open('https://github.com/AllenLeiZhao/Stock_Price_Forecasting_Investment_Analysis', '_blank')">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>📈 Stock Price Forecasting & Investment Strategy Analysis</h3>
+                        <p>Time series modeling and comparative forecasting of AAPL and HON stock prices using regression, smoothing, and moving averages in R. This project explores statistical modeling to forecast stock prices and guide investment decisions, featuring ARIMA model forecasting, simulated trading strategy comparison, and comprehensive performance analysis with data visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Time Series</span>
+                            <span class="tech-tag">ARIMA Model</span>
+                            <span class="tech-tag">Forecasting</span>
+                            <span class="tech-tag">Financial Modeling</span>
+                            <span class="tech-tag">Investment Strategy</span>
+                            <span class="tech-tag">Quantitative Finance</span>
+                            <span class="tech-tag">Data Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AllenLeiZhao/Stock_Price_Forecasting_Investment_Analysis" target="_blank" onclick="event.stopPropagation()">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
