@@ -720,6 +720,12 @@
                         url('https://images.pexels.com/photos/38296/cycling-bicycle-riding-sport-38296.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
         }
         
+        /* Model validation - Machine learning/AI theme */
+        .project-card.model-validation .project-image {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+        }
+
         /* Coffee analysis - Coffee/market theme */
         .project-card.coffee-analysis .project-image {
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
@@ -1318,6 +1324,7 @@
             <div class="projects-categories">
                 <button class="category-btn active" onclick="filterProjects('all')">All Projects</button>
                 <button class="category-btn" onclick="filterProjects('data-analysis')">Data Analysis</button>
+                <button class="category-btn" onclick="filterProjects('machine-learning')">Machine Learning</button>
                 <button class="category-btn" onclick="filterProjects('optimization')">Optimization</button>
                 <button class="category-btn" onclick="filterProjects('nlp')">NLP</button>
                 <button class="category-btn" onclick="filterProjects('storytelling')">Data Storytelling</button>
@@ -1370,6 +1377,33 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/AllenLeiZhao/Sports_Betting_Strategy_Analysis" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model Validation Strategy Comparison Project -->
+                <div class="project-card model-validation" data-category="machine-learning" onclick="window.open('https://github.com/AllenLeiZhao/Model_Validation_Strategy_Comparison', '_blank')">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>🔄 Model Validation Strategy Comparison - K-Fold Cross-Validation</h3>
+                        <p>A comparison of cross-validation techniques and classification models using synthetic data. Includes evaluation of Logistic Regression, Random Forest, and SVM with K-Fold and Repeated K-Fold methods. This project investigates how performance stability improves with more validation cycles, featuring systematic model comparison and accuracy trend visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Cross-Validation</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Classification</span>
+                            <span class="tech-tag">Model Evaluation</span>
+                            <span class="tech-tag">Data Science</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/AllenLeiZhao/Model_Validation_Strategy_Comparison" target="_blank" onclick="event.stopPropagation()">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
