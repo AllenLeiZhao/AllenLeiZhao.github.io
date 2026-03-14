@@ -199,20 +199,24 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
 
 <script>
 (function(){
+// Floating icons - right side only (away from text)
+(function(){
   var icons=['⚡','📊','🚀','💡','📱','🔬','⚙️','📈','🌐','🤖','💻','🎯'];
   var container=document.getElementById('floatingIcons');
   if(!container)return;
-  for(var i=0;i<18;i++){
+  for(var i=0;i<12;i++){
     var el=document.createElement('span');
     el.className='fi';
     el.textContent=icons[i%icons.length];
-    el.style.left=Math.random()*100+'%';
-    el.style.animationDuration=(12+Math.random()*18)+'s';
+    // Only spawn in right 35% of screen to avoid text on the left
+    el.style.left=(65+Math.random()*32)+'%';
+    el.style.animationDuration=(14+Math.random()*16)+'s';
     el.style.animationDelay=(-Math.random()*20)+'s';
-    el.style.fontSize=(2.2+Math.random()*1.8)+'rem';
-    el.style.opacity=String(0.12+Math.random()*0.1);
+    el.style.fontSize=(2+Math.random()*1.6)+'rem';
+    el.style.opacity=String(0.1+Math.random()*0.08);
     container.appendChild(el);
   }
+})();
 })();
 
 // Fetch real App Store icons
@@ -298,9 +302,10 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
     </div>
     <div class="pm-card">
       <div class="pm-head">
+        <span class="badge-live">● Live</span>
         <div class="pm-app-icon-fallback">🐺</div>
-        <h3>Werewolf Squad</h3><div class="pm-head-sub">Social Gaming Platform · Live (Asia)</div></div>
-      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games. Live in Asian markets. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">Live — Asia</span></div><div class="pm-links"><a href="#" class="pm-link off">US Market TBD</a></div></div>
+        <h3>白狼杀</h3><div class="pm-head-sub">Social Deduction Platform · Live (CN)</div></div>
+      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games, live in China. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">China Market</span></div><div class="pm-links"><a href="#" class="pm-link off">CN App Store Only</a></div></div>
     </div>
   </div>
 
