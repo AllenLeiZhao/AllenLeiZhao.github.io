@@ -196,23 +196,26 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
 </section>
 
 <script>
-// Fetch App Store icons via iTunes API - single icon per card
+// Load app icons via iTunes JSONP (bypasses CORS)
 (function(){
   var apps=[
-    {id:'6755604022',imgId:'icon-snapet'},
-    {id:'6754526279',imgId:'icon-poker'},
-    {id:'6751415168',imgId:'icon-21saga'},
-    {id:'6757695823',imgId:'icon-tile'},
+    {id:'6755604022', imgId:'icon-snapet'},
+    {id:'6754526279', imgId:'icon-poker'},
+    {id:'6751415168', imgId:'icon-21saga'},
+    {id:'6757695823', imgId:'icon-tile'},
   ];
   apps.forEach(function(app){
-    fetch('https://itunes.apple.com/lookup?id='+app.id)
-      .then(function(r){return r.json()})
-      .then(function(d){
-        if(d.results&&d.results[0]){
-          var img=document.getElementById(app.imgId);
-          if(img)img.src=d.results[0].artworkUrl100;
-        }
-      }).catch(function(){});
+    var cbName='_ic'+app.id;
+    window[cbName]=function(d){
+      if(d.results&&d.results[0]){
+        var img=document.getElementById(app.imgId);
+        if(img)img.src=d.results[0].artworkUrl100;
+      }
+      delete window[cbName];
+    };
+    var s=document.createElement('script');
+    s.src='https://itunes.apple.com/lookup?id='+app.id+'&callback='+cbName;
+    document.head.appendChild(s);
   });
 })();
 </script>
