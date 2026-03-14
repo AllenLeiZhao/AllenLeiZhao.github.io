@@ -25,9 +25,7 @@ nav{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdro
 .hero-glow-3{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,0.12) 0%,transparent 65%);top:35%;right:28%;animation:glowDrift 12s ease-in-out infinite alternate}
 @keyframes glowDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,30px) scale(1.12)}}
 
-.floating-icons{position:absolute;inset:0;z-index:1;pointer-events:none}
-.fi{position:absolute;animation:floatUp linear infinite}
-@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg);opacity:0}8%{opacity:1}88%{opacity:1}100%{transform:translateY(-140px) rotate(360deg);opacity:0}}
+
 
 .hero-grid-lines{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(59,130,246,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.06) 1px,transparent 1px);background-size:60px 60px}
 
@@ -161,7 +159,7 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
   <div class="hero-glow-2"></div>
   <div class="hero-glow-3"></div>
   <div class="hero-grid-lines"></div>
-  <div class="floating-icons" id="floatingIcons"></div>
+
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Product &amp; Analytics</div>
@@ -198,27 +196,6 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
 </section>
 
 <script>
-(function(){
-// Floating icons - right side only (away from text)
-(function(){
-  var icons=['⚡','📊','🚀','💡','📱','🔬','⚙️','📈','🌐','🤖','💻','🎯'];
-  var container=document.getElementById('floatingIcons');
-  if(!container)return;
-  for(var i=0;i<12;i++){
-    var el=document.createElement('span');
-    el.className='fi';
-    el.textContent=icons[i%icons.length];
-    // Only spawn in right 35% of screen to avoid text on the left
-    el.style.left=(65+Math.random()*32)+'%';
-    el.style.animationDuration=(14+Math.random()*16)+'s';
-    el.style.animationDelay=(-Math.random()*20)+'s';
-    el.style.fontSize=(2+Math.random()*1.6)+'rem';
-    el.style.opacity=String(0.1+Math.random()*0.08);
-    container.appendChild(el);
-  }
-})();
-})();
-
 // Fetch real App Store icons
 (function(){
   var apps=[
