@@ -89,7 +89,8 @@ section{padding:72px 6%}
 .pm-head.alt2{background:#1a1e2e}
 .badge-live{position:absolute;top:0.85rem;right:0.85rem;background:#22c55e;color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.07em;padding:0.2rem 0.55rem;border-radius:12px;text-transform:uppercase}
 .badge-pend{position:absolute;top:0.85rem;right:0.85rem;background:#d97706;color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.07em;padding:0.2rem 0.55rem;border-radius:12px;text-transform:uppercase}
-.pm-icon{font-size:1.75rem;margin-bottom:0.6rem}
+.pm-app-icon{width:52px;height:52px;border-radius:12px;object-fit:cover;margin-bottom:0.7rem;display:block}
+.pm-app-icon-fallback{width:52px;height:52px;border-radius:12px;margin-bottom:0.7rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:rgba(255,255,255,0.1)}
 .pm-head h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:0.2rem}
 .pm-head-sub{font-size:0.72rem;color:rgba(255,255,255,0.5)}
 .pm-body{padding:1.25rem 1.5rem;flex:1;display:flex;flex-direction:column}
@@ -113,22 +114,23 @@ section{padding:72px 6%}
 .dc-tag{background:#f1f5f9;color:#475569;font-size:0.7rem;font-weight:600;padding:0.22rem 0.6rem;border-radius:8px}
 .gh-link{font-size:0.8rem;font-weight:600;color:#2e6be6;text-decoration:none;margin-top:auto}
 .gh-link:hover{text-decoration:underline}
-#contact{background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 60%,#faf5ff 100%);position:relative;overflow:hidden}
+#contact{background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 60%,#faf5ff 100%);position:relative;overflow:hidden;padding:72px 6%}
 #contact::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.1) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
 #contact::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.08) 0%,transparent 70%);bottom:-80px;left:5%;pointer-events:none}
 .contact-wrap{position:relative;z-index:1}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch}
 .contact-grid .sec-tag{color:#3b82f6}
 .contact-grid .sec-tag::before{background:#3b82f6}
 .contact-grid .sec-title{color:#0f172a}
 .contact-grid .sec-sub{color:#64748b}
-.c-items{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem}
+.c-left{display:flex;flex-direction:column}
+.c-items{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;flex:1}
 .c-item{display:flex;align-items:center;gap:0.9rem;padding:0.9rem 1.1rem;background:rgba(255,255,255,0.7);border:1px solid rgba(59,130,246,0.12);border-radius:12px;text-decoration:none;transition:border-color 0.2s,background 0.2s,box-shadow 0.2s;backdrop-filter:blur(8px)}
 .c-item:hover{border-color:rgba(59,130,246,0.35);background:rgba(255,255,255,0.9);box-shadow:0 4px 16px rgba(59,130,246,0.1)}
 .c-icon{width:38px;height:38px;background:rgba(59,130,246,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .c-text strong{display:block;font-size:0.83rem;color:#0f172a}
 .c-text span{font-size:0.78rem;color:#94a3b8}
-.c-note{background:rgba(255,255,255,0.65);border:1px solid rgba(59,130,246,0.14);border-radius:16px;padding:2.25rem;backdrop-filter:blur(12px)}
+.c-note{background:rgba(255,255,255,0.65);border-radius:16px;padding:2.25rem;backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:center}
 .c-note h4{font-family:'Playfair Display',serif;font-size:1.4rem;color:#0f172a;margin-bottom:0.85rem}
 .c-note p{color:#475569;font-size:0.88rem;line-height:1.85}
 .c-note .hl{color:#3b82f6;font-weight:600}
@@ -212,6 +214,25 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
     container.appendChild(el);
   }
 })();
+
+// Fetch real App Store icons
+(function(){
+  var apps=[
+    {id:'6755604022',imgId:'icon-snapet'},
+    {id:'6740267226',imgId:'icon-tile'},
+  ];
+  apps.forEach(function(app){
+    fetch('https://itunes.apple.com/lookup?id='+app.id)
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(d.results&&d.results[0]){
+          var url=d.results[0].artworkUrl100;
+          var img=document.getElementById(app.imgId);
+          if(img)img.src=url;
+        }
+      }).catch(function(){});
+  });
+})();
 </script>
 
 <section id="about">
@@ -243,28 +264,43 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
   <div class="sub-tag gold">Product Work — Live Apps</div>
   <div class="pm-grid">
     <div class="pm-card">
-      <div class="pm-head"><span class="badge-live">● Live</span><div class="pm-icon">🐾</div><h3>SnaPet</h3><div class="pm-head-sub">AI Social App · Independent</div></div>
+      <div class="pm-head"><span class="badge-live">● Live</span>
+        <img id="icon-snapet" class="pm-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/7c/4e/placeholder/100x100bb.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="SnaPet">
+        <div class="pm-app-icon-fallback" style="display:none">🐾</div>
+        <h3>SnaPet</h3><div class="pm-head-sub">AI Social App · Independent</div></div>
       <div class="pm-body"><p>A consumer social app where pets come alive through AI. LLM + computer vision give each pet a unique personality that responds to photos and chats.</p><div class="pm-tags"><span class="pm-tag">LLM Integration</span><span class="pm-tag">Computer Vision</span><span class="pm-tag">Consumer Social</span><span class="pm-tag">0→1</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/snapet/id6755604022" target="_blank" class="pm-link">↗ App Store</a></div></div>
     </div>
     <div class="pm-card">
-      <div class="pm-head alt"><span class="badge-live">● Live</span><div class="pm-icon">🀄</div><h3>Poker Mahjong</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
+      <div class="pm-head alt"><span class="badge-live">● Live</span>
+        <img class="pm-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/poker-mahjong/AppIcon/100x100bb.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Poker Mahjong">
+        <div class="pm-app-icon-fallback" style="display:none">🀄</div>
+        <h3>Poker Mahjong</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
       <div class="pm-body"><p>A hybrid casual puzzle fusing poker and mahjong tile-matching. Led end-to-end product ownership from game design through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.cwjoy.pokermahjong" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
-      <div class="pm-head alt"><span class="badge-live">● Live</span><div class="pm-icon">🃏</div><h3>21 Saga</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
+      <div class="pm-head alt"><span class="badge-live">● Live</span>
+        <div class="pm-app-icon-fallback">🃏</div>
+        <h3>21 Saga</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
       <div class="pm-body"><p>Number-matching puzzle combining blackjack mechanics with satisfying tile-clear gameplay. Owned full product lifecycle from concept through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.cwjoy.blackjack" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
-      <div class="pm-head alt"><span class="badge-live">● Live</span><div class="pm-icon">🏝️</div><h3>Tile Voyage</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
+      <div class="pm-head alt"><span class="badge-live">● Live</span>
+        <img id="icon-tile" class="pm-app-icon" src="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Tile Voyage">
+        <div class="pm-app-icon-fallback" style="display:none">🏝️</div>
+        <h3>Tile Voyage</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
       <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed the engagement loop combining daily rewards, level pacing, and paradise-building mechanics.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/mahjong-tile-voyage/id6740267226" target="_blank" class="pm-link">↗ App Store</a></div></div>
     </div>
     <div class="pm-card">
-      <div class="pm-head alt2"><span class="badge-pend">⏳ iOS Review</span><div class="pm-icon">🎲</div><h3>Mahjong Monopoly</h3><div class="pm-head-sub">Casual Strategy · CwGames</div></div>
+      <div class="pm-head alt2"><span class="badge-pend">⏳ iOS Review</span>
+        <div class="pm-app-icon-fallback">🎲</div>
+        <h3>Mahjong Monopoly</h3><div class="pm-head-sub">Casual Strategy · CwGames</div></div>
       <div class="pm-body"><p>Strategic mahjong fused with board game territory mechanics. Android live; iOS currently under App Store review. Led product design and pre-launch strategy.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Strategy</span><span class="pm-tag">Android Live</span></div><div class="pm-links"><a href="#" class="pm-link off">iOS — Pending</a></div></div>
     </div>
     <div class="pm-card">
-      <div class="pm-head"><div class="pm-icon">🐺</div><h3>Werewolf Squad</h3><div class="pm-head-sub">Social Platform · Independent</div></div>
-      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">UX Design</span></div><div class="pm-links"><a href="#" class="pm-link off">In Development</a></div></div>
+      <div class="pm-head">
+        <div class="pm-app-icon-fallback">🐺</div>
+        <h3>Werewolf Squad</h3><div class="pm-head-sub">Social Gaming Platform · Live (Asia)</div></div>
+      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games. Live in Asian markets. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">Live — Asia</span></div><div class="pm-links"><a href="#" class="pm-link off">US Market TBD</a></div></div>
     </div>
   </div>
 
@@ -282,7 +318,7 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
 <section id="contact">
   <div class="contact-wrap">
     <div class="contact-grid">
-      <div>
+      <div class="c-left">
         <div class="sec-tag">Contact</div>
         <h2 class="sec-title">Let's connect</h2>
         <p class="sec-sub" style="margin-bottom:0">Open to PM and product analytics roles. Based in San Jose, CA — open to relocation anywhere in the US.</p>
@@ -297,6 +333,8 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
         <p>I bridge <span class="hl">product strategy</span> and <span class="hl">data-driven execution</span>. Whether it's defining a roadmap, running A/B experiments, or shipping an app from scratch — I've done it at scale.</p>
         <br>
         <p>6 live apps. 10M+ users. 13 years across three markets. <span class="hl">Open to relocation anywhere in the US.</span></p>
+        <br>
+        <p style="font-size:0.82rem;color:#94a3b8">📍 San Jose, CA &nbsp;·&nbsp; ✈️ Open to relocation &nbsp;·&nbsp; 🌏 EN / ZH / JP (N1)</p>
       </div>
     </div>
   </div>
