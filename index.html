@@ -200,7 +200,9 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
 (function(){
   var apps=[
     {id:'6755604022',imgId:'icon-snapet'},
-    {id:'6740267226',imgId:'icon-tile'},
+    {id:'6754526279',imgId:'icon-poker'},
+    {id:'6751415168',imgId:'icon-21saga'},
+    {id:'6757695823',imgId:'icon-tile'},
   ];
   apps.forEach(function(app){
     fetch('https://itunes.apple.com/lookup?id='+app.id)
@@ -209,7 +211,7 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
         if(d.results&&d.results[0]){
           var url=d.results[0].artworkUrl100;
           var img=document.getElementById(app.imgId);
-          if(img)img.src=url;
+          if(img){img.src=url;img.style.display='block';}
         }
       }).catch(function(){});
   });
@@ -246,43 +248,44 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
   <div class="pm-grid">
     <div class="pm-card">
       <div class="pm-head"><span class="badge-live">● Live</span>
-        <img id="icon-snapet" class="pm-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/7c/4e/placeholder/100x100bb.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="SnaPet">
+        <img id="icon-snapet" class="pm-app-icon" src="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="SnaPet">
         <div class="pm-app-icon-fallback" style="display:none">🐾</div>
         <h3>SnaPet</h3><div class="pm-head-sub">AI Social App · Independent</div></div>
-      <div class="pm-body"><p>A consumer social app where pets come alive through AI. LLM + computer vision give each pet a unique personality that responds to photos and chats.</p><div class="pm-tags"><span class="pm-tag">LLM Integration</span><span class="pm-tag">Computer Vision</span><span class="pm-tag">Consumer Social</span><span class="pm-tag">0→1</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/snapet/id6755604022" target="_blank" class="pm-link">↗ App Store</a></div></div>
+      <div class="pm-body"><p>A consumer social app where pets come alive through AI. LLM + computer vision give each pet a unique personality that responds to photos and chats.</p><div class="pm-tags"><span class="pm-tag">LLM Integration</span><span class="pm-tag">Computer Vision</span><span class="pm-tag">Consumer Social</span><span class="pm-tag">0→1</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/snapet/id6755604022" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=ai.snapet.app" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head alt"><span class="badge-live">● Live</span>
-        <img class="pm-app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/poker-mahjong/AppIcon/100x100bb.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Poker Mahjong">
+        <img id="icon-poker" class="pm-app-icon" src="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Poker Mahjong">
         <div class="pm-app-icon-fallback" style="display:none">🀄</div>
         <h3>Poker Mahjong</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
-      <div class="pm-body"><p>A hybrid casual puzzle fusing poker and mahjong tile-matching. Led end-to-end product ownership from game design through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.cwjoy.pokermahjong" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+      <div class="pm-body"><p>A hybrid casual puzzle fusing poker and mahjong tile-matching. Led end-to-end product ownership from game design through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/poker-mahjong/id6754526279" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.pokermahjong" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head alt"><span class="badge-live">● Live</span>
-        <div class="pm-app-icon-fallback">🃏</div>
+        <img id="icon-21saga" class="pm-app-icon" src="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="21 Saga">
+        <div class="pm-app-icon-fallback" style="display:none">🃏</div>
         <h3>21 Saga</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
-      <div class="pm-body"><p>Number-matching puzzle combining blackjack mechanics with satisfying tile-clear gameplay. Owned full product lifecycle from concept through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.cwjoy.blackjack" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+      <div class="pm-body"><p>Number-matching puzzle combining blackjack mechanics with satisfying tile-clear gameplay. Owned full product lifecycle from concept through launch.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/21-saga/id6751415168" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.blackjack" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head alt"><span class="badge-live">● Live</span>
         <img id="icon-tile" class="pm-app-icon" src="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Tile Voyage">
         <div class="pm-app-icon-fallback" style="display:none">🏝️</div>
         <h3>Tile Voyage</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
-      <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed the engagement loop combining daily rewards, level pacing, and paradise-building mechanics.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/mahjong-tile-voyage/id6740267226" target="_blank" class="pm-link">↗ App Store</a></div></div>
+      <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed the engagement loop combining daily rewards, level pacing, and paradise-building mechanics.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/tile-voyage/id6757695823" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.tilevoyage" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head alt2"><span class="badge-pend">⏳ iOS Review</span>
         <div class="pm-app-icon-fallback">🎲</div>
         <h3>Mahjong Monopoly</h3><div class="pm-head-sub">Casual Strategy · CwGames</div></div>
-      <div class="pm-body"><p>Strategic mahjong fused with board game territory mechanics. Android live; iOS currently under App Store review. Led product design and pre-launch strategy.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Strategy</span><span class="pm-tag">Android Live</span></div><div class="pm-links"><a href="#" class="pm-link off">iOS — Pending</a></div></div>
+      <div class="pm-body"><p>Strategic mahjong fused with board game territory mechanics. Android live; iOS currently under App Store review. Led product design and pre-launch strategy.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Strategy</span><span class="pm-tag">Android Live</span></div><div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.injoygame.mahjongmonopoly" target="_blank" class="pm-link">↗ Google Play</a><a href="#" class="pm-link off">iOS — Pending</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head">
         <span class="badge-live">● Live</span>
         <div class="pm-app-icon-fallback">🐺</div>
-        <h3>白狼杀</h3><div class="pm-head-sub">Social Deduction Platform · Live (CN)</div></div>
-      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games, live in China. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">China Market</span></div><div class="pm-links"><a href="#" class="pm-link off">CN App Store Only</a></div></div>
+        <h3>Werewolf Squad</h3><div class="pm-head-sub">Social Deduction Platform · Live (CN)</div></div>
+      <div class="pm-body"><p>Mobile matchmaking platform for social deduction games, live in China. Designed team formation mechanics, real-time lobby systems, and community engagement loops.</p><div class="pm-tags"><span class="pm-tag">Social Platform</span><span class="pm-tag">Matchmaking</span><span class="pm-tag">China Market</span></div><div class="pm-links"><a href="#" class="pm-link off">CN Store Only</a></div></div>
     </div>
   </div>
 
