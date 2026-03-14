@@ -58,6 +58,10 @@ nav{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdro
 
 .tech-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;animation:fadeUp 0.8s 0.4s ease both}
 .tech-tag{background:rgba(255,255,255,0.55);border:1px solid rgba(59,130,246,0.18);color:#64748b;padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:500;backdrop-filter:blur(4px)}
+.hero-highlights{display:flex;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0 1rem;animation:fadeUp 0.8s 0.35s ease both}
+.hero-hl-item{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.6);border:1px solid rgba(59,130,246,0.15);padding:0.4rem 0.85rem;border-radius:20px;font-size:0.78rem;font-weight:600;color:#1e293b;backdrop-filter:blur(4px)}
+.hero-hl-icon{font-size:0.9rem}
+.si-orange{background:rgba(249,115,22,0.1)}
 section{padding:72px 6%}
 .sec-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#2e6be6;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem}
 .sec-tag::before{content:'';width:20px;height:2px;background:#2e6be6}
@@ -164,10 +168,28 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
     <div>
       <div class="hero-eyebrow">Product &amp; Analytics</div>
       <h1 class="hero-name">Lei <span class="accent">Zhao</span></h1>
-      <p class="hero-desc">Product leader with 10+ years building mobile products from 0 to millions of users. Currently completing MS in Analytics at Northeastern University.</p>
+      <p class="hero-desc">Product leader specializing in mobile gaming, consumer social apps, and AI-powered products. Built and shipped 6 live apps across iOS and Android, grew products to 10M+ users and $5M+ monthly revenue. MS in Analytics at Northeastern University. Trilingual in English, Chinese, and Japanese (JLPT N1).</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View My Work</a>
         <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-highlights">
+        <div class="hero-hl-item">
+          <div class="hero-hl-icon">🎮</div>
+          <span>Mobile Gaming</span>
+        </div>
+        <div class="hero-hl-item">
+          <div class="hero-hl-icon">🤖</div>
+          <span>AI Products</span>
+        </div>
+        <div class="hero-hl-item">
+          <div class="hero-hl-icon">📊</div>
+          <span>Product Analytics</span>
+        </div>
+        <div class="hero-hl-item">
+          <div class="hero-hl-icon">🌏</div>
+          <span>Global Markets</span>
+        </div>
       </div>
       <div class="tech-tags">
         <span class="tech-tag">Product Strategy</span>
@@ -175,20 +197,21 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
         <span class="tech-tag">A/B Testing</span>
         <span class="tech-tag">LLM Integration</span>
         <span class="tech-tag">SQL · Python</span>
-        <span class="tech-tag">Mobile Apps</span>
+        <span class="tech-tag">Unity</span>
+        <span class="tech-tag">EN / ZH / JP N1</span>
       </div>
     </div>
     <div class="hero-right-panel">
       <div class="stat-card">
-        <div class="stat-icon si-blue">📅</div>
-        <div><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon si-purple">👥</div>
+        <div class="stat-icon si-blue">👥</div>
         <div><div class="stat-num">10M+</div><div class="stat-label">Users Reached</div></div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon si-green">📱</div>
+        <div class="stat-icon si-green">💰</div>
+        <div><div class="stat-num">$5M+</div><div class="stat-label">Monthly Revenue</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-purple">📱</div>
         <div><div class="stat-num">6</div><div class="stat-label">Live Apps</div></div>
       </div>
     </div>
@@ -270,7 +293,7 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
       <div class="pm-head alt"><span class="badge-live">● Live</span>
         <img id="icon-tile" class="pm-app-icon" src="" alt="Tile Voyage">
         <h3>Tile Voyage</h3><div class="pm-head-sub">Casual Puzzle · CwGames</div></div>
-      <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed the engagement loop combining daily rewards, level pacing, and paradise-building mechanics.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/tile-voyage/id6757695823" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.tilevoyage" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+      <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed the engagement loop combining daily rewards, level pacing, and paradise-building mechanics.</p><div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag">iOS & Android</span></div><div class="pm-links"><a href="https://apps.apple.com/us/app/tile-voyage/id6757695823" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.injoygame.tilevoyage" target="_blank" class="pm-link">↗ Google Play</a></div></div>
     </div>
     <div class="pm-card">
       <div class="pm-head alt2"><span class="badge-pend">⏳ iOS Review</span>
@@ -315,7 +338,7 @@ footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font
         <h4>What I bring</h4>
         <p>I bridge <span class="hl">product strategy</span> and <span class="hl">data-driven execution</span>. Whether it's defining a roadmap, running A/B experiments, or shipping an app from scratch — I've done it at scale.</p>
         <br>
-        <p>6 live apps. 10M+ users. 13 years across three markets. <span class="hl">Open to relocation anywhere in the US.</span></p>
+        <p>6 live apps · 10M+ users · $5M+ monthly revenue · 3 markets. <span class="hl">Open to relocation anywhere in the US.</span></p>
         <br>
         <p style="font-size:0.82rem;color:#94a3b8">📍 San Jose, CA &nbsp;·&nbsp; ✈️ Open to relocation &nbsp;·&nbsp; 🌏 EN / ZH / JP (N1)</p>
       </div>
