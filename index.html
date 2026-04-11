@@ -3,6 +3,466 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lei Zhao — Data & Analytics Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#f5f4f0;color:#1a1a1a;line-height:1.6}
+
+/* NAV */
+nav{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(59,130,246,0.12)}
+.nav-logo{font-family:'Playfair Display',serif;color:#1e293b;font-size:1.15rem;text-decoration:none;letter-spacing:0.01em}
+.nav-logo span{color:#3b82f6}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:#64748b;text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;letter-spacing:0.03em}
+.nav-links a:hover{color:#3b82f6}
+
+/* HERO */
+#home{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 50%,#faf5ff 100%)}
+.hero-glow-1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(99,179,237,0.18) 0%,transparent 65%);top:-150px;left:-150px;animation:glowDrift 8s ease-in-out infinite alternate}
+.hero-glow-2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(159,122,234,0.14) 0%,transparent 65%);bottom:-100px;right:5%;animation:glowDrift 10s ease-in-out infinite alternate-reverse}
+.hero-glow-3{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,0.12) 0%,transparent 65%);top:35%;right:28%;animation:glowDrift 12s ease-in-out infinite alternate}
+@keyframes glowDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,30px) scale(1.12)}}
+.hero-grid-lines{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(59,130,246,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.06) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{position:relative;z-index:10;padding:0 6%;width:100%;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.25);color:#3b82f6;padding:0.35rem 1rem;border-radius:20px;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5rem);color:#0f172a;line-height:1.05;margin-bottom:1rem;animation:fadeUp 0.8s ease both}
+.hero-name .accent{background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-desc{color:#475569;font-size:0.95rem;max-width:460px;margin-bottom:2rem;line-height:1.8;animation:fadeUp 0.8s 0.15s ease both}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;animation:fadeUp 0.8s 0.3s ease both}
+.btn-primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;padding:0.7rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.85rem;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(99,102,241,0.25)}
+.btn-primary:hover{opacity:0.9;transform:translateY(-2px)}
+.btn-outline{border:1.5px solid rgba(59,130,246,0.35);color:#3b82f6;background:rgba(255,255,255,0.6);padding:0.7rem 1.6rem;border-radius:10px;text-decoration:none;font-weight:500;font-size:0.85rem;transition:all 0.2s;backdrop-filter:blur(4px)}
+.btn-outline:hover{border-color:#3b82f6;background:rgba(59,130,246,0.06)}
+.hero-right-panel{display:flex;flex-direction:column;gap:0.75rem;animation:fadeUp 0.8s 0.2s ease both}
+.stat-card{background:rgba(255,255,255,0.7);border:1px solid rgba(59,130,246,0.12);border-radius:14px;padding:1.25rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color 0.2s,background 0.2s,box-shadow 0.2s;cursor:default;backdrop-filter:blur(8px)}
+.stat-card:hover{background:rgba(255,255,255,0.9);border-color:rgba(59,130,246,0.3);box-shadow:0 4px 20px rgba(59,130,246,0.1)}
+.stat-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.si-blue{background:rgba(59,130,246,0.1)}
+.si-purple{background:rgba(139,92,246,0.1)}
+.si-green{background:rgba(52,211,153,0.1)}
+.si-orange{background:rgba(249,115,22,0.1)}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.7rem;color:#0f172a;line-height:1}
+.stat-label{font-size:0.68rem;color:#94a3b8;margin-top:0.15rem;text-transform:uppercase;letter-spacing:0.07em}
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;animation:fadeUp 0.8s 0.4s ease both}
+.tech-tag{background:rgba(255,255,255,0.55);border:1px solid rgba(59,130,246,0.18);color:#64748b;padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:500;backdrop-filter:blur(4px)}
+.hero-highlights{display:flex;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0 1rem;animation:fadeUp 0.8s 0.35s ease both}
+.hero-hl-item{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.6);border:1px solid rgba(59,130,246,0.15);padding:0.4rem 0.85rem;border-radius:20px;font-size:0.78rem;font-weight:600;color:#1e293b;backdrop-filter:blur(4px)}
+.hero-hl-icon{font-size:0.9rem}
+
+section{padding:72px 6%}
+.sec-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#2e6be6;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem}
+.sec-tag::before{content:'';width:20px;height:2px;background:#2e6be6}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:#1a1a2e;margin-bottom:0.6rem}
+.sec-sub{color:#6b7280;font-size:0.92rem;max-width:520px;margin-bottom:2.5rem}
+
+/* ABOUT */
+#about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.about-p{color:#4a5568;font-size:0.92rem;line-height:1.8;margin-bottom:0.9rem}
+.skills{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1.25rem}
+.skill{background:#f0f4ff;color:#2e6be6;padding:0.35rem 0.85rem;border-radius:20px;font-size:0.77rem;font-weight:600}
+.info-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.info-card{background:#f8f9fc;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem}
+.info-card-icon{font-size:1.2rem;margin-bottom:0.5rem}
+.info-card h4{font-size:0.85rem;font-weight:600;color:#1a1a2e;margin-bottom:0.25rem}
+.info-card p{font-size:0.8rem;color:#6b7280;line-height:1.55}
+
+/* PROJECTS */
+#projects{background:#f5f4f0}
+.sub-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem}
+.sub-tag.gold{color:#a07020}
+.sub-tag.gold::before{content:'';width:20px;height:2px;background:#a07020}
+.sub-tag.blue{color:#2e6be6}
+.sub-tag.blue::before{content:'';width:20px;height:2px;background:#2e6be6}
+.sub-tag.teal{color:#0d9488}
+.sub-tag.teal::before{content:'';width:20px;height:2px;background:#0d9488}
+
+/* DE PROJECT CARDS */
+.de-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin-bottom:3rem}
+.de-card{background:#fff;border-radius:14px;padding:1.75rem;border:1px solid #e2e8f0;transition:transform 0.22s,box-shadow 0.22s;display:flex;flex-direction:column}
+.de-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,26,46,0.1)}
+.de-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem}
+.de-card-icon{font-size:1.6rem}
+.de-card-badge{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:10px}
+.badge-wip{background:#fef3c7;color:#d97706}
+.badge-live{background:#dcfce7;color:#16a34a}
+.de-card h3{font-size:1rem;color:#1a1a2e;font-weight:600;margin-bottom:0.5rem;line-height:1.35}
+.de-card p{color:#6b7280;font-size:0.85rem;line-height:1.7;flex:1;margin-bottom:1rem}
+.de-stack{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
+.de-stack-tag{background:#f0f4ff;color:#2e6be6;font-size:0.7rem;font-weight:600;padding:0.22rem 0.6rem;border-radius:8px}
+.de-pipeline{background:#f8f9fc;border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;font-size:0.78rem;color:#475569;line-height:1.6}
+.de-pipeline strong{color:#1a1a2e;font-weight:600}
+.de-links{display:flex;gap:0.6rem;margin-top:auto}
+.de-link{font-size:0.78rem;font-weight:600;color:#2e6be6;text-decoration:none;border:1.5px solid #2e6be6;padding:0.35rem 0.75rem;border-radius:7px;transition:all 0.18s}
+.de-link:hover{background:#2e6be6;color:#fff}
+
+/* APP CARDS */
+.pm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem}
+.pm-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;transition:transform 0.22s,box-shadow 0.22s;display:flex;flex-direction:column}
+.pm-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,26,46,0.1)}
+.pm-head{padding:1.5rem 1.5rem 1.1rem;background:#1a1a2e;position:relative}
+.pm-head.alt{background:#1a2e1a}
+.pm-head.alt2{background:#1a1e2e}
+.badge-live-dot{position:absolute;top:0.85rem;right:0.85rem;background:#22c55e;color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.07em;padding:0.2rem 0.55rem;border-radius:12px;text-transform:uppercase}
+.badge-pend{position:absolute;top:0.85rem;right:0.85rem;background:#d97706;color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.07em;padding:0.2rem 0.55rem;border-radius:12px;text-transform:uppercase}
+.pm-app-icon{width:52px;height:52px;border-radius:12px;object-fit:cover;margin-bottom:0.7rem;display:block}
+.pm-app-icon-fallback{width:52px;height:52px;border-radius:12px;margin-bottom:0.7rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:rgba(255,255,255,0.1)}
+.pm-head h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:0.2rem}
+.pm-head-sub{font-size:0.72rem;color:rgba(255,255,255,0.5)}
+.pm-body{padding:1.25rem 1.5rem;flex:1;display:flex;flex-direction:column}
+.pm-body p{color:#4a5568;font-size:0.85rem;line-height:1.7;margin-bottom:0.9rem}
+.pm-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
+.pm-tag{background:#f0f4ff;color:#2e6be6;font-size:0.7rem;font-weight:600;padding:0.22rem 0.6rem;border-radius:10px}
+.pm-tag.g{background:#fef8e7;color:#a07020}
+.pm-tag.teal{background:#f0fdfa;color:#0d9488}
+.pm-links{display:flex;gap:0.6rem;margin-top:auto;flex-wrap:wrap}
+.pm-link{font-size:0.78rem;font-weight:600;color:#2e6be6;text-decoration:none;border:1.5px solid #2e6be6;padding:0.35rem 0.75rem;border-radius:7px;transition:all 0.18s;white-space:nowrap}
+.pm-link:hover{background:#2e6be6;color:#fff}
+.pm-link.off{color:#9ca3af;border-color:#e2e8f0;pointer-events:none}
+
+/* DATA SCIENCE CARDS */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.dc{background:#fff;border-radius:14px;padding:1.5rem;border:1px solid #e2e8f0;transition:transform 0.22s,box-shadow 0.22s;display:flex;flex-direction:column}
+.dc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,26,46,0.08)}
+.dc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.85rem}
+.dc-icon{font-size:1.4rem}
+.dc-cat{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2e6be6;background:#f0f4ff;padding:0.25rem 0.65rem;border-radius:10px}
+.dc h3{font-size:0.95rem;color:#1a1a2e;font-weight:600;margin-bottom:0.45rem;line-height:1.35}
+.dc p{color:#6b7280;font-size:0.83rem;line-height:1.7;flex:1;margin-bottom:1rem}
+.dc-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
+.dc-tag{background:#f1f5f9;color:#475569;font-size:0.7rem;font-weight:600;padding:0.22rem 0.6rem;border-radius:8px}
+.gh-link{font-size:0.8rem;font-weight:600;color:#2e6be6;text-decoration:none;margin-top:auto}
+.gh-link:hover{text-decoration:underline}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 60%,#faf5ff 100%);position:relative;overflow:hidden;padding:72px 6%}
+#contact::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.1) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none}
+#contact::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.08) 0%,transparent 70%);bottom:-80px;left:5%;pointer-events:none}
+.contact-wrap{position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch}
+.contact-grid .sec-tag{color:#3b82f6}
+.contact-grid .sec-tag::before{background:#3b82f6}
+.contact-grid .sec-title{color:#0f172a}
+.contact-grid .sec-sub{color:#64748b}
+.c-left{display:flex;flex-direction:column}
+.c-items{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;flex:1}
+.c-item{display:flex;align-items:center;gap:0.9rem;padding:0.9rem 1.1rem;background:rgba(255,255,255,0.7);border:1px solid rgba(59,130,246,0.12);border-radius:12px;text-decoration:none;transition:border-color 0.2s,background 0.2s,box-shadow 0.2s;backdrop-filter:blur(8px)}
+.c-item:hover{border-color:rgba(59,130,246,0.35);background:rgba(255,255,255,0.9);box-shadow:0 4px 16px rgba(59,130,246,0.1)}
+.c-icon{width:38px;height:38px;background:rgba(59,130,246,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.c-text strong{display:block;font-size:0.83rem;color:#0f172a}
+.c-text span{font-size:0.78rem;color:#94a3b8}
+.c-note{background:rgba(255,255,255,0.65);border-radius:16px;padding:2.25rem;backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:center}
+.c-note h4{font-family:'Playfair Display',serif;font-size:1.4rem;color:#0f172a;margin-bottom:0.85rem}
+.c-note p{color:#475569;font-size:0.88rem;line-height:1.85}
+.c-note .hl{color:#3b82f6;font-weight:600}
+footer{background:#e8edf5;color:#94a3b8;text-align:center;padding:1.5rem 6%;font-size:0.8rem;border-top:1px solid rgba(59,130,246,0.1)}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right-panel{display:none}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .info-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#home">Lei <span>Zhao</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-glow-3"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Data &amp; Analytics Engineer</div>
+      <h1 class="hero-name">Lei <span class="accent">Zhao</span></h1>
+      <p class="hero-desc">Data and Analytics Engineer specializing in ELT pipeline design, dimensional data modeling, and modern data stack tooling. Built GA4 and AppsFlyer data infrastructure for products with 10M+ users and $5M+ monthly revenue. M.S. in Analytics, Northeastern University. Trilingual in English, Chinese, and Japanese (JLPT N1).</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-highlights">
+        <div class="hero-hl-item"><div class="hero-hl-icon">🔧</div><span>dbt · BigQuery · Airflow</span></div>
+        <div class="hero-hl-item"><div class="hero-hl-icon">🎮</div><span>Gaming Data</span></div>
+        <div class="hero-hl-item"><div class="hero-hl-icon">🤖</div><span>LLM / AI Apps</span></div>
+        <div class="hero-hl-item"><div class="hero-hl-icon">🌏</div><span>EN / ZH / JP N1</span></div>
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">dbt</span>
+        <span class="tech-tag">BigQuery</span>
+        <span class="tech-tag">Airflow</span>
+        <span class="tech-tag">Snowflake</span>
+        <span class="tech-tag">Spark</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">GA4 · AppsFlyer</span>
+        <span class="tech-tag">Looker</span>
+      </div>
+    </div>
+    <div class="hero-right-panel">
+      <div class="stat-card">
+        <div class="stat-icon si-blue">👥</div>
+        <div><div class="stat-num">10M+</div><div class="stat-label">Users in Pipeline</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-green">💰</div>
+        <div><div class="stat-num">$5M+</div><div class="stat-label">Monthly Revenue Tracked</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-purple">📱</div>
+        <div><div class="stat-num">6</div><div class="stat-label">Live Apps Shipped</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-orange">🗣️</div>
+        <div><div class="stat-num">3</div><div class="stat-label">Languages (EN/ZH/JP)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var apps=[
+    {id:'6755604022', imgId:'icon-snapet'},
+    {id:'6754526279', imgId:'icon-poker'},
+    {id:'6751415168', imgId:'icon-21saga'},
+    {id:'6757695823', imgId:'icon-tile'},
+  ];
+  apps.forEach(function(app){
+    var cbName='_ic'+app.id;
+    window[cbName]=function(d){
+      if(d.results&&d.results[0]){
+        var img=document.getElementById(app.imgId);
+        if(img)img.src=d.results[0].artworkUrl100;
+      }
+      delete window[cbName];
+    };
+    var s=document.createElement('script');
+    s.src='https://itunes.apple.com/lookup?id='+app.id+'&callback='+cbName;
+    document.head.appendChild(s);
+  });
+})();
+</script>
+
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="sec-tag">About Me</div>
+      <h2 class="sec-title">Building reliable data infrastructure</h2>
+      <p class="about-p">I'm a Data and Analytics Engineer with deep expertise in ELT pipeline design, dimensional data modeling, and modern data stack tooling (dbt, BigQuery, Airflow). My background spans the full data lifecycle — from event instrumentation and pipeline ingestion to transformation, modeling, and self-serve dashboards.</p>
+      <p class="about-p">At Newga Network, I built and maintained GA4 and AppsFlyer data infrastructure supporting products with 10M+ users and $5M+ monthly revenue. I designed star schema dimensional models for player behavior, UA performance, and monetization — and established A/B testing frameworks that improved D7 retention by 15%.</p>
+      <p class="about-p">Currently completing my M.S. in Analytics at Northeastern University, while running an independent game studio where I own the entire data stack from instrumentation to mart-layer modeling. Open to Data Engineer and Analytics Engineer roles across the US and Japan.</p>
+      <div class="skills">
+        <span class="skill">dbt</span>
+        <span class="skill">BigQuery</span>
+        <span class="skill">Airflow</span>
+        <span class="skill">Snowflake</span>
+        <span class="skill">Spark</span>
+        <span class="skill">Kafka</span>
+        <span class="skill">AWS</span>
+        <span class="skill">GCP</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Python</span>
+        <span class="skill">Java</span>
+        <span class="skill">Looker</span>
+        <span class="skill">Tableau</span>
+        <span class="skill">GA4</span>
+        <span class="skill">AppsFlyer</span>
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-icon">🔧</div><h4>Pipeline Engineering</h4><p>End-to-end ELT pipelines with dbt, Airflow, and BigQuery — incremental models, snapshots, data quality tests, and full lineage.</p></div>
+      <div class="info-card"><div class="info-card-icon">📐</div><h4>Data Modeling</h4><p>Star schema dimensional modeling for player behavior, UA, and monetization. Deep expertise in gaming data architecture.</p></div>
+      <div class="info-card"><div class="info-card-icon">🤖</div><h4>AI / LLM Integration</h4><p>Built LLM-powered applications using LangChain, GPT-4o, FAISS, and Streamlit. Daily AI tools user (Claude, Cursor).</p></div>
+      <div class="info-card"><div class="info-card-icon">🌏</div><h4>Global Markets</h4><p>Trilingual in English, Chinese, and Japanese (JLPT N1). Experience across US, China, and Japan markets.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-tag">Portfolio</div>
+  <h2 class="sec-title">Data Engineering &amp; Apps</h2>
+  <p class="sec-sub">End-to-end data pipelines, analytics infrastructure, and live products I've built and shipped.</p>
+
+  <div class="sub-tag teal">Data Engineering Projects</div>
+  <div class="de-grid">
+    <div class="de-card">
+      <div class="de-card-header">
+        <span class="de-card-icon">⚙️</span>
+        <span class="de-card-badge badge-wip">In Progress</span>
+      </div>
+      <h3>Gaming Analytics Pipeline — dbt + BigQuery + Airflow</h3>
+      <p>End-to-end ELT pipeline built on real GA4 and AppsFlyer data from live mobile game titles. Covers the full modern data stack from raw event ingestion to business-ready marts.</p>
+      <div class="de-pipeline">
+        <strong>Architecture:</strong> GA4 &amp; AppsFlyer → BigQuery (raw) → dbt staging → dbt intermediate → dbt mart → Looker Studio dashboards<br><br>
+        <strong>Features:</strong> Incremental models · Snapshots (SCD Type 2) · Custom generic tests · dbt docs &amp; lineage · Airflow DAG orchestration · Data quality monitoring
+      </div>
+      <div class="de-stack">
+        <span class="de-stack-tag">dbt Cloud</span>
+        <span class="de-stack-tag">BigQuery</span>
+        <span class="de-stack-tag">Airflow</span>
+        <span class="de-stack-tag">GA4</span>
+        <span class="de-stack-tag">AppsFlyer</span>
+        <span class="de-stack-tag">Python</span>
+        <span class="de-stack-tag">SQL</span>
+        <span class="de-stack-tag">Looker Studio</span>
+      </div>
+      <div class="de-links">
+        <a href="https://github.com/AllenLeiZhao" target="_blank" class="de-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <div class="de-card">
+      <div class="de-card-header">
+        <span class="de-card-icon">🤖</span>
+        <span class="de-card-badge badge-live">Live</span>
+      </div>
+      <h3>AI E-Commerce Chatbot — LangChain + GPT-4o + FAISS</h3>
+      <p>LLM-powered conversational chatbot for e-commerce product discovery. Built with RAG architecture using FAISS vector store for semantic search over product catalog data.</p>
+      <div class="de-pipeline">
+        <strong>Architecture:</strong> Product catalog → FAISS vector index → LangChain RAG → GPT-4o → Streamlit UI<br><br>
+        <strong>Features:</strong> Semantic product search · Conversational memory · Streamlit interface · Deployed end-to-end
+      </div>
+      <div class="de-stack">
+        <span class="de-stack-tag">LangChain</span>
+        <span class="de-stack-tag">GPT-4o</span>
+        <span class="de-stack-tag">FAISS</span>
+        <span class="de-stack-tag">Streamlit</span>
+        <span class="de-stack-tag">Python</span>
+        <span class="de-stack-tag">RAG</span>
+      </div>
+      <div class="de-links">
+        <a href="https://github.com/AllenLeiZhao" target="_blank" class="de-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <div class="de-card">
+      <div class="de-card-header">
+        <span class="de-card-icon">📊</span>
+        <span class="de-card-badge badge-live">Live</span>
+      </div>
+      <h3>Game Analytics Infrastructure — Newga Network</h3>
+      <p>Designed and maintained the full analytics data infrastructure for mobile games serving 10M+ global users. Owned everything from event instrumentation to executive dashboards.</p>
+      <div class="de-pipeline">
+        <strong>Architecture:</strong> GA4 &amp; AppsFlyer events → BigQuery → dimensional models → Tableau / Looker dashboards<br><br>
+        <strong>Impact:</strong> D7 retention +15% · ARPU +10-20% · Analytics turnaround -30% · Supported $15M+ acquisition
+      </div>
+      <div class="de-stack">
+        <span class="de-stack-tag">BigQuery</span>
+        <span class="de-stack-tag">SQL</span>
+        <span class="de-stack-tag">Python</span>
+        <span class="de-stack-tag">Tableau</span>
+        <span class="de-stack-tag">Looker</span>
+        <span class="de-stack-tag">GA4</span>
+        <span class="de-stack-tag">AppsFlyer</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-tag gold">Live Apps — Independent Studio (CwGames)</div>
+  <p style="color:#6b7280;font-size:0.88rem;margin-bottom:1.5rem;max-width:600px;">I build and ship mobile games and AI apps independently — and own the full data infrastructure for each title, from GA4 instrumentation to dbt-modeled analytics marts.</p>
+  <div class="pm-grid">
+    <div class="pm-card">
+      <div class="pm-head"><span class="badge-live-dot">● Live</span>
+        <img id="icon-snapet" class="pm-app-icon" src="" alt="SnaPet">
+        <h3>SnaPet</h3><div class="pm-head-sub">AI Social App · Independent</div></div>
+      <div class="pm-body"><p>A consumer social app where pets come alive through AI. LLM + computer vision give each pet a unique personality that responds to photos and chats.</p>
+      <div class="pm-tags"><span class="pm-tag">LLM Integration</span><span class="pm-tag">Computer Vision</span><span class="pm-tag teal">GA4 Instrumented</span></div>
+      <div class="pm-links"><a href="https://apps.apple.com/us/app/snapet/id6755604022" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=ai.snapet.app" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-head alt"><span class="badge-live-dot">● Live</span>
+        <img id="icon-poker" class="pm-app-icon" src="" alt="Poker Mahjong">
+        <h3>Poker Mahjong</h3><div class="pm-head-sub">Casual Puzzle · Independent</div></div>
+      <div class="pm-body"><p>A hybrid casual puzzle fusing poker and mahjong tile-matching. Full product ownership from design through live operations and analytics.</p>
+      <div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag teal">AppsFlyer + GA4</span></div>
+      <div class="pm-links"><a href="https://apps.apple.com/us/app/poker-mahjong/id6754526279" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.pokermahjong" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-head alt"><span class="badge-live-dot">● Live</span>
+        <img id="icon-21saga" class="pm-app-icon" src="" alt="21 Saga">
+        <h3>21 Saga</h3><div class="pm-head-sub">Casual Puzzle · Independent</div></div>
+      <div class="pm-body"><p>Number-matching puzzle combining blackjack mechanics with satisfying tile-clear gameplay. Owned full product lifecycle from concept through analytics.</p>
+      <div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Casual</span><span class="pm-tag teal">AppsFlyer + GA4</span></div>
+      <div class="pm-links"><a href="https://apps.apple.com/us/app/21-saga/id6751415168" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.cwjoy.blackjack" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-head alt"><span class="badge-live-dot">● Live</span>
+        <img id="icon-tile" class="pm-app-icon" src="" alt="Tile Voyage">
+        <h3>Tile Voyage</h3><div class="pm-head-sub">Casual Puzzle · Independent</div></div>
+      <div class="pm-body"><p>Zen tile-matching with island-building progression. Designed engagement loops and retention mechanics, tracked via full analytics pipeline.</p>
+      <div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Retention Design</span><span class="pm-tag teal">AppsFlyer + GA4</span></div>
+      <div class="pm-links"><a href="https://apps.apple.com/us/app/tile-voyage/id6757695823" target="_blank" class="pm-link">↗ App Store</a><a href="https://play.google.com/store/apps/details?id=com.injoygame.tilevoyage" target="_blank" class="pm-link">↗ Google Play</a></div></div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-head alt2"><span class="badge-pend">⏳ iOS Review</span>
+        <div class="pm-app-icon-fallback">🎲</div>
+        <h3>Mahjong Monopoly</h3><div class="pm-head-sub">Casual Strategy · Independent</div></div>
+      <div class="pm-body"><p>Strategic mahjong fused with board game territory mechanics. Android live; iOS under App Store review.</p>
+      <div class="pm-tags"><span class="pm-tag g">Product Lead</span><span class="pm-tag">Strategy</span><span class="pm-tag teal">AppsFlyer + GA4</span></div>
+      <div class="pm-links"><a href="https://play.google.com/store/apps/details?id=com.injoygame.mahjongmonopoly" target="_blank" class="pm-link">↗ Google Play</a><a href="#" class="pm-link off">iOS — Pending</a></div></div>
+    </div>
+  </div>
+
+  <div class="sub-tag blue">Analytics &amp; Data Science</div>
+  <div class="data-grid">
+    <div class="dc"><div class="dc-top"><span class="dc-icon">🎬</span><span class="dc-cat">Data Storytelling</span></div><h3>Cinema Analytics — Multi-Stakeholder Perspective</h3><p>Analyzed box office trends through three business lenses. Produced a film where each character visualizes the same dataset differently.</p><div class="dc-tags"><span class="dc-tag">Business Intelligence</span><span class="dc-tag">Visualization</span><span class="dc-tag">Storytelling</span></div></div>
+    <div class="dc"><div class="dc-top"><span class="dc-icon">📈</span><span class="dc-cat">Machine Learning</span></div><h3>Stock Price Forecasting &amp; Investment Strategy</h3><p>Time series modeling of AAPL and HON using ARIMA, regression, and moving averages. Compared simulated trading strategies with comprehensive performance analysis.</p><div class="dc-tags"><span class="dc-tag">R</span><span class="dc-tag">ARIMA</span><span class="dc-tag">Time Series</span></div><a href="https://github.com/AllenLeiZhao/Stock_Price_Forecasting_Investment_Analysis" target="_blank" class="gh-link">↗ GitHub</a></div>
+    <div class="dc"><div class="dc-top"><span class="dc-icon">🎯</span><span class="dc-cat">Statistics</span></div><h3>Sports Betting Strategy — Statistical Modeling</h3><p>Monte Carlo simulation and chi-square testing to find optimal betting strategies across best-of-3/5/7 series formats.</p><div class="dc-tags"><span class="dc-tag">R</span><span class="dc-tag">Monte Carlo</span><span class="dc-tag">Probability</span></div><a href="https://github.com/AllenLeiZhao/Sports_Betting_Strategy_Analysis" target="_blank" class="gh-link">↗ GitHub</a></div>
+    <div class="dc"><div class="dc-top"><span class="dc-icon">☕</span><span class="dc-cat">Forecasting</span></div><h3>Coffee Price Analysis — Statistical Forecasting</h3><p>EDA, ANOVA, and Lasso regression on coffee bean prices. Includes STL decomposition and MAPE-evaluated forecasting models.</p><div class="dc-tags"><span class="dc-tag">R</span><span class="dc-tag">Lasso</span><span class="dc-tag">Forecasting</span></div><a href="https://github.com/AllenLeiZhao/Coffee_Price_Analysis" target="_blank" class="gh-link">↗ GitHub</a></div>
+    <div class="dc"><div class="dc-top"><span class="dc-icon">🔄</span><span class="dc-cat">Machine Learning</span></div><h3>Model Validation — K-Fold Cross-Validation</h3><p>Compared Logistic Regression, Random Forest, and SVM using K-Fold and Repeated K-Fold to investigate performance stability.</p><div class="dc-tags"><span class="dc-tag">Python</span><span class="dc-tag">Scikit-learn</span><span class="dc-tag">Cross-Validation</span></div><a href="https://github.com/AllenLeiZhao/Model_Validation_Strategy_Comparison" target="_blank" class="gh-link">↗ GitHub</a></div>
+    <div class="dc"><div class="dc-top"><span class="dc-icon">🚲</span><span class="dc-cat">Dashboard</span></div><h3>UK Bicycle Accident Analysis Dashboard</h3><p>Interactive Looker Studio dashboard analyzing 40 years of UK bicycle accident data to surface policy-relevant insights.</p><div class="dc-tags"><span class="dc-tag">Looker Studio</span><span class="dc-tag">Dashboard</span><span class="dc-tag">Transportation</span></div><a href="https://github.com/AllenLeiZhao/Bicycle_Accident_Analysis_in_Great_Britain_1979-2018" target="_blank" class="gh-link">↗ GitHub</a></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-grid">
+      <div class="c-left">
+        <div class="sec-tag">Contact</div>
+        <h2 class="sec-title">Let's connect</h2>
+        <p class="sec-sub" style="margin-bottom:0">Open to Data Engineer and Analytics Engineer roles in the US and Japan. Based in San Jose, CA — open to relocation.</p>
+        <div class="c-items">
+          <a href="mailto:allen.lei.zhao@gmail.com" class="c-item"><div class="c-icon">✉️</div><div class="c-text"><strong>Email</strong><span>allen.lei.zhao@gmail.com</span></div></a>
+          <a href="https://www.linkedin.com/in/allen-lei-zhao/" target="_blank" class="c-item"><div class="c-icon">💼</div><div class="c-text"><strong>LinkedIn</strong><span>linkedin.com/in/allen-lei-zhao</span></div></a>
+          <a href="https://github.com/AllenLeiZhao" target="_blank" class="c-item"><div class="c-icon">💻</div><div class="c-text"><strong>GitHub</strong><span>github.com/AllenLeiZhao</span></div></a>
+        </div>
+      </div>
+      <div class="c-note">
+        <h4>What I bring</h4>
+        <p>I build <span class="hl">reliable data infrastructure</span> that teams can trust. From ELT pipeline design and dimensional modeling to self-serve dashboards — I own the full data stack end-to-end.</p>
+        <br>
+        <p>10M+ users in pipeline · $5M+ monthly revenue tracked · 6 live apps shipped · Gaming domain expertise.</p>
+        <br>
+        <p style="font-size:0.82rem;color:#94a3b8">📍 San Jose, CA &nbsp;·&nbsp; ✈️ Open to relocation &nbsp;·&nbsp; 🌏 EN / ZH / JP (N1)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Lei Zhao · Data & Analytics Engineer · San Jose, CA</footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lei Zhao — Product & Analytics</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
